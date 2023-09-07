@@ -1,0 +1,3 @@
+[submodule "nlz-debian-packaging/neovim"]
+	path = nlz-debian-packaging/neovim
+	url = https://github.com/nledez/nlz-debian-packaging-neovim.git

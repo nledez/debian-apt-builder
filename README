@@ -1,0 +1,14 @@
+```
+terraform init && terraform apply
+BUILDER_IP=$(cat terraform.tfstate | jq -r '.["resources"][0]["instances"][0]["attributes"]["access_ip_v4"]')
+rsync -av scripts/ ubuntu@${BUILDER_IP}:scripts/
+rsync -av nlz-debian-packaging/ ubuntu@${BUILDER_IP}:nlz-debian-packaging/
+ssh ubuntu@${BUILDER_IP}
+```
+
+```
+bash ~/scripts/run.sh
+cd nlz-debian-packaging/neovim/
+./launch_build.sh
+./launch_build.sh --debian buster --neovim 0.9.0
+```
